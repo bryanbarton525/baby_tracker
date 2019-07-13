@@ -3,11 +3,11 @@ from web_gui.secret import Secret
 from waitress import serve
 from datetime import datetime
 
-
 site = Flask(__name__)
 site.config.from_object(Secret)
 
 
+# function to convert military time format to standard AM PM time.
 def format_datetime(value):
     if value is not None:
         value = str(value)
@@ -19,6 +19,7 @@ def format_datetime(value):
         return value
 
 
+# Add function to jinja filters
 site.jinja_env.filters['datetime'] = format_datetime
 
 from web_gui import routes

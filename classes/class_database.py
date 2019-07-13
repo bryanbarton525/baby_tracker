@@ -4,6 +4,9 @@ from datetime import datetime
 
 
 class DataBase:
+    """
+    Class to manage different database connections and queries.
+    """
 
     def __init__(self):
         with open('/home/bbarton/PycharmProjects/baby_feeding_tracker/configs/db_conn.json') as conf_file:
@@ -87,5 +90,5 @@ if __name__ == "__main__":
     db = DataBase()
     # result = db.get_all_records()
     # result = db.new_entry(start_feed='11:30', date='2019-07-11')
-    result = db.get_last_record()
-    print(result)
+    # result = db.get_last_record()
+    # print(result)
