@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Event</title>
+</head>
+<body>
+<IMG src="http://10.174.62.100:8000/wp-content/uploads/2019/04/Bens-Logo.png" class="center">
+<hr>
+<ul>
+    <li><a class="active" href="/log_event">Log Event</a></li>
+    <li><a href="/feeding_report">Feeding Report</a></li>
+</ul>
+<hr>
+<h2 class="headers">Log Feeding, Poop or Pee</h2>
+<form class="log_event" action="" method="post">
+    {{ form.hidden_tag() }}
+    {{ form.time.label }}
+    {{ form.time() }}<br><br>
+    {% for subfield in form.type %}
+        <tr>
+            <td>{{ subfield }}</td>
+            <td>{{ subfield.label }}</td>
+        </tr>
+    {% endfor %}<br><br>
+    {{ form.note.label }}
+    {{ form.note(size=40) }}<br>
+    {{ form.submit }}
+    {% for error in form.errors %}
+      <p>{{error}}</p>
+    {% endfor %}
+
+</form>
+</body>
+</html>

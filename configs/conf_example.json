@@ -1,0 +1,8 @@
+{
+  "database_creds": {
+    "user": "test",
+    "password": "test",
+    "host": "your_host",
+    "database": "test_database"
+  }
+}
