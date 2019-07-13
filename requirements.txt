@@ -1,6 +1,0 @@
-mysql-connector-python
-waitress
-flask
-wtforms
-flask_wtf
-wtforms_components
