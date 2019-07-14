@@ -4,3 +4,4 @@ flask
 wtforms
 flask_wtf
 wtforms_components
+fpdf

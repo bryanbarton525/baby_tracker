@@ -16,6 +16,18 @@
 <hr>
 <h1 class="headers">Ben's Feeding and Bowel Movement Tracker</h1>
 
+<input id="elem" type="button" value="Generate PDF Report"/>
+
+<script>
+  function redirect() {
+    window.location.href = '/pdf';
+  }
+
+  elem.onclick = () => alert("Creating PDF Document");
+  elem.addEventListener("click", redirect); // Thanks again!
+</script>
+<br>
+<br>
 {% with messages = get_flashed_messages() %}
   {% if messages %}
     <p class=flashes>

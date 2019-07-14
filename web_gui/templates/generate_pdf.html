@@ -1,0 +1,33 @@
+<h1 class="headers">Ben's Feeding and Bowel Movement Tracker</h1>
+<hr>
+<table border="0" align="center" width="100%">
+    <tr>
+        <th width="14%" align="left">Date</th>
+        <th width="14%" align="left">Feeding Start</th>
+        <th width="14%" align="left">Feeding End</th>
+        <th width="14%" align="left">Poop Time</th>
+        <th width="14%" align="left">Pee Time</th>
+        <th width="10%" align="left">Feed Time</th>
+        <th width="20%" align="left">Notes</th>
+    </tr>
+
+    {% for result in results %}
+        <tr>
+            <td>{{result['date']}}</td>
+            <td>{{result['start_feed']|datetime }}</td>
+            <td>{{result['end_feed']|datetime }}</td>
+            <td>{{result['poop_time']|datetime}}</td>
+            <td>{{result['pee_time']|datetime}}</td>
+            {% if result['end_feed'] %}
+                <td>{{ result['end_feed'] - result['start_feed'] }}</td>
+            {% else %}
+                <td>None</td>
+            {% endif %}
+            {% if result['notes'] == '' %}
+            <td align="left">None</td>
+                {% else %}
+                    <td align="left">{{result['notes']}}</td>
+                {% endif %}
+        </tr>
+    {% endfor %}
+</table>
