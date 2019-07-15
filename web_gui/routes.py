@@ -84,5 +84,10 @@ def log_event():
             flash('Event Logged')
             db.close_connections()
             return redirect(url_for('event_report'))
+        if event_type == 'both':
+            db.new_entry(both=time, date=date, notes=notes)
+            flash('Event Logged')
+            db.close_connections()
+            return redirect(url_for('event_report'))
 
     return render_template('/log_event.html', form=form)
