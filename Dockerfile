@@ -10,6 +10,10 @@ RUN rm -rf requirements.txt
 RUN useradd tracker
 WORKDIR /home/tracker
 
+# Set TimeZone
+RUN echo "US/Eastern" > /etc/timezone
+RUN dpkg-reconfigure -f noninteractive tzdata
+
 # Copy files
 COPY classes classes
 COPY configs configs
