@@ -5,7 +5,7 @@ from wtforms_components import TimeField
 
 class LogFeeding(FlaskForm):
     events = [('start_feed', 'Start Feeding'), ('end_feed', 'End Feeding'), ('bottle', 'Bottle'),
-              ('poop_time', 'Poop'), ('pee_time', 'Pee')]
+              ('poop_time', 'Poop'), ('pee_time', 'Pee'), ('both', 'Pee and Poop')]
     time = TimeField('Time:')
     type = RadioField('Event Type', choices=events)
     note = StringField('Notes:', description='Amount bottle fed, color of poop, etc.')

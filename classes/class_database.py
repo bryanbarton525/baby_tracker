@@ -77,8 +77,9 @@ class DataBase:
                     'values (%(bottle)s, %(bottle)s, %(date)s, False, %(notes)s)'
         elif 'poop_time' in kwargs.keys():
             query = "insert into tbl_times (poop_time, date, notes) values (%(poop_time)s, %(date)s, %(notes)s)"
-        elif 'pee_time' in kwargs.keys():
-            query = "insert into tbl_times (pee_time, date, notes) values (%(pee_time)s, %(date)s, %(notes)s)"
+        elif 'both' in kwargs.keys():
+            query = "insert into tbl_times (poop_time, pee_time, date, notes) " \
+                    "values (%(both)s, %(both)s, %(date)s, %(notes)s)"
 
         result = self.db_curs(query, insert_data=kwargs)
         print(result)
