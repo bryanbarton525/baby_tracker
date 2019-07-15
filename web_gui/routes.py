@@ -4,6 +4,7 @@ from classes.class_database import DataBase
 from web_gui.forms import LogFeeding
 from datetime import datetime
 from fpdf import FPDF, HTMLMixin
+from pytz import timezone
 
 
 class HTML2PDF(FPDF, HTMLMixin):
@@ -42,9 +43,12 @@ def event_report():
 def log_event():
     db = DataBase()
     form = LogFeeding()
-
+    test = timezone('US/Eastern')
+    print(test)
     if form.validate_on_submit() is True:
-        date = datetime.today().strftime('%Y-%m-%d')
+        eastern = timezone('US/Eastern')
+        date = datetime.now(eastern).strftime('%Y-%m-%d')
+        print(date)
         print("submitted")
         time = form.time.data
         event_type = form.type.data

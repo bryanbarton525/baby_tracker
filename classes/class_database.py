@@ -9,7 +9,7 @@ class DataBase:
     """
 
     def __init__(self):
-        with open('/home/tracker/configs/db_conn.json') as conf_file:
+        with open('/home/bbarton/PycharmProjects/baby_feeding_tracker/configs/db_conn.json') as conf_file:
             data = json.load(conf_file)
             print(data)
         try:
