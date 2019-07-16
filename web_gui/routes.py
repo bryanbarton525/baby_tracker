@@ -62,7 +62,7 @@ def log_event():
             db.close_connections()
             return redirect(url_for('event_report'))
         if event_type == 'end_feed':
-            prev_record = db.get_last_record()
+            prev_record = db.get_last_record(date=date)
             prev_record_id = prev_record[0]['id']
             print(prev_record_id)
             db.new_entry(end_feed=time, id=prev_record_id, notes=notes)

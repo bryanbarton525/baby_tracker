@@ -9,7 +9,7 @@ class DataBase:
     """
 
     def __init__(self):
-        with open('/home/tracker/configs/db_conn.json') as conf_file:
+        with open('/home/bbarton/PycharmProjects/baby_feeding_tracker/configs/db_conn.json') as conf_file:
             data = json.load(conf_file)
             print(data)
         try:
@@ -55,11 +55,10 @@ class DataBase:
         self.close_connections()
         return records
 
-    def get_last_record(self):
-        date = {'date': datetime.today().strftime('%Y-%m-%d')}
-        print(date)
+    def get_last_record(self, **kwargs):
+        print(kwargs)
         query = "select * from tbl_times where date = %(date)s and current_feed is True;"
-        record = self.db_curs(query=query, data=date)
+        record = self.db_curs(query=query, data=kwargs)
         print(record)
         return record
 
