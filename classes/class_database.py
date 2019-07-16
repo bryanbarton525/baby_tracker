@@ -55,11 +55,10 @@ class DataBase:
         self.close_connections()
         return records
 
-    def get_last_record(self):
-        date = {'date': datetime.today().strftime('%Y-%m-%d')}
-        print(date)
+    def get_last_record(self, **kwargs):
+        print(kwargs)
         query = "select * from tbl_times where date = %(date)s and current_feed is True;"
-        record = self.db_curs(query=query, data=date)
+        record = self.db_curs(query=query, data=kwargs)
         print(record)
         return record
 
@@ -86,10 +85,3 @@ class DataBase:
         self.close_connections()
         return result
 
-
-if __name__ == "__main__":
-    db = DataBase()
-    # result = db.get_all_records()
-    # result = db.new_entry(start_feed='11:30', date='2019-07-11')
-    # result = db.get_last_record()
-    # print(result)
