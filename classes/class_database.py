@@ -85,10 +85,3 @@ class DataBase:
         self.close_connections()
         return result
 
-
-if __name__ == "__main__":
-    db = DataBase()
-    # result = db.get_all_records()
-    # result = db.new_entry(start_feed='11:30', date='2019-07-11')
-    # result = db.get_last_record()
-    # print(result)
