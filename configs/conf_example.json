@@ -4,5 +4,6 @@
     "password": "test",
     "host": "your_host",
     "database": "test_database"
-  }
+  },
+  "salt": "YOUR_SALTY_KEY_GOES_HERE"
 }
