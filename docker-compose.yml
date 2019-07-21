@@ -1,8 +1,8 @@
 version: '3.7'
 services:
   web:
-    image: baby_tracker:v1.04
-    build: .
-    ports:
-      - "80:8080"
-    restart: always
+    image: baby_tracker:v1.05
+      build: .
+      ports:
+        - "80:8080"
+      restart: always

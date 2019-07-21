@@ -8,7 +8,7 @@
 </head>
 <body>
 <a class="logout" href="/logout">Logout, {{ session['user'] }}</a>
-<IMG src="http://10.174.62.100:8000/wp-content/uploads/2019/04/Bens-Logo.png" class="center">
+<IMG src="{{ url_for('static', filename='images/Bens-Logo.png') }}" class="center">
 <hr>
 <ul>
     <li><a class="active" href="/log_event">Log Event</a></li>
