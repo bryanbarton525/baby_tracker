@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta content='width=device-width, initial-scale=1' name='viewport'/>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
+<head>
+    <meta charset="UTF-8">
+    <title>Log Event</title>
+</head>
+<body>
+<a class="logout" href="/logout">Logout, {{ session['user'] }}</a>
+<IMG src="http://10.174.62.100:8000/wp-content/uploads/2019/04/Bens-Logo.png" class="center">
+<hr>
+<ul>
+    <li><a href="/log_event">Log Event</a></li>
+    <li><a href="/feeding_report">Feeding Report</a></li>
+    {% if session['user'] == 'admin' %}
+        <li><a href="/register">Register User</a></li>
+    {% endif %}
+</ul>
+<hr>
+<p class="no_auth">You Are Not Authorized To Access This Page.</p>
+</body>
+</html>

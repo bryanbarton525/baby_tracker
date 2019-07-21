@@ -7,6 +7,28 @@ table, tr, td, th {
     font-size: 24px;
     font-weight: bold;
     color: red;
+    text-align: center;
+}
+
+.errors {
+    font-size: 14px;
+    color: red;
+    font-weight: bold;
+}
+
+.no_auth {
+    color: black;
+    font-weight: bold;
+    font-size: 30px;
+    display: block;
+    text-align: center;
+}
+
+.event_flashes {
+    font-size: 24px;
+    font-weight: bold;
+    color: red;
+    text-align: left;
 }
 
 .center {
@@ -31,7 +53,7 @@ ul {
 li {
   float: left;
   border-right:1px solid #bbb;
-  background-color: #5785EA
+  background-color: #3498DB;
 }
 
 li:last-child {
@@ -47,7 +69,7 @@ li a {
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+  background-color: #2980B9;
 }
 
 .active {
@@ -66,3 +88,110 @@ li a:hover:not(.active) {
     block: left;
 }
 
+* {
+box-sizing: border-box;
+}
+
+*:focus {
+outline: none;
+}
+
+body {
+font-family: Arial;
+background-color: #F3F3F3;
+}
+
+.login {
+margin: 20px auto;
+width: 300px;
+}
+
+.login-screen {
+background-color: #FFF;
+padding: 20px;
+border-radius: 5px
+}
+
+.app-title {
+text-align: center;
+color: #777;
+}
+
+.login-form {
+text-align: center;
+}
+.control-group {
+margin-bottom: 10px;
+}
+
+input {
+text-align: center;
+background-color: #ECF0F1;
+border: 2px solid transparent;
+border-radius: 3px;
+font-size: 16px;
+font-weight: 200;
+transition: border .5s;
+}
+
+input:focus {
+border: 2px solid #3498DB;
+box-shadow: none;
+}
+
+.btn {
+border: 2px solid transparent;
+background: #3498DB;
+color: #ffffff;
+font-size: 16px;
+font-weight: bold;
+line-height: 25px;
+padding: 10px 0;
+text-decoration: none;
+text-shadow: none;
+border-radius: 3px;
+box-shadow: none;
+transition: 0.25s;
+display: block;
+width: 250px;
+margin: 0 auto;
+}
+
+.btn:hover {
+background-color: #2980B9;
+}
+
+.login-link {
+font-size: 12px;
+color: #444;
+display: block;
+margin-top: 12px;
+}
+
+.site_btn {
+border: 2px solid transparent;
+background: #3498DB;
+color: #ffffff;
+font-size: 16px;
+font-weight: bold;
+line-height: 25px;
+padding: 10px 0;
+text-decoration: none;
+text-shadow: none;
+border-radius: 3px;
+box-shadow: none;
+transition: 0.25s;
+display: block;
+width: 250px;
+}
+
+.site_btn:hover {
+background-color: #2980B9;
+}
+
+.logout {
+    display: block;
+    text-align: right;
+    font-size: 16px;
+    font-weight: bold;
+}
