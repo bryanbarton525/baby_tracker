@@ -1,7 +1,7 @@
 version: '3.7'
 services:
   web:
-    image: baby_tracker:v1.03
+    image: baby_tracker:v1.05
     build: .
     ports:
       - "8080:8080"
