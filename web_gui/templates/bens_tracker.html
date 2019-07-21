@@ -4,6 +4,7 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <head>
     <meta charset="UTF-8">
+    <a class="logout" href="/logout">Logout, {{ session['user'] }}</a>
     <title>Ben's Food and bowl movement Tracker</title>
 </head>
 <body>
@@ -12,11 +13,14 @@
 <ul>
     <li><a href="/log_event">Log Event</a></li>
     <li><a class="active" href="/feeding_report">Feeding Report</a></li>
+    {% if session['user'] == 'admin' %}
+        <li><a href="/register">Register User</a></li>
+    {% endif %}
 </ul>
 <hr>
 <h1 class="headers">Ben's Feeding and Bowel Movement Tracker</h1>
 
-<input id="elem" type="button" value="Generate PDF Report"/>
+<input id="elem" type="button" value="Generate PDF Report" class="site_btn site_btn-primary site_btn-large site_btn-block"/>
 
 <script>
   function redirect() {
@@ -30,7 +34,7 @@
 <br>
 {% with messages = get_flashed_messages() %}
   {% if messages %}
-    <p class=flashes>
+    <p class=event_flashes>
     {% for message in messages %}
       {{ message }}
     {% endfor %}

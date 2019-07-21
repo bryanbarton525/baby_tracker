@@ -1,6 +1,6 @@
 import mysql.connector
 import json
-from datetime import datetime
+import hashlib
 
 
 class DataBase:
@@ -10,10 +10,9 @@ class DataBase:
 
     def __init__(self):
         with open('/home/tracker/configs/db_conn.json') as conf_file:
-            data = json.load(conf_file)
-            print(data)
+            self.conf = json.load(conf_file)
         try:
-            self.conn = mysql.connector.connect(**data['database_creds'])
+            self.conn = mysql.connector.connect(**self.conf['database_creds'])
 
         except mysql.connector.Error as error:
             print(error)
@@ -35,8 +34,9 @@ class DataBase:
 
         else:
             try:
-                results = curs.execute(query, insert_data)
+                curs.execute(query, insert_data)
                 curs.close()
+                results = 'Success'
 
             except mysql.connector.Error as error:
                 print(error)
@@ -87,3 +87,22 @@ class DataBase:
         self.close_connections()
         return result
 
+    def validate(self, **kwargs):
+        query = "select password from tbl_users where username = %(username)s"
+        results = self.db_curs(query, data=kwargs)
+        hashed_password = results[0]['password']
+        print(hashed_password)
+        self.close_connections()
+        return hashed_password == hashlib.md5((self.conf['salt'] + kwargs['password']).encode()).hexdigest()
+
+    def add_user(self, **kwargs):
+        kwargs.update({'password': hashlib.md5((self.conf['salt'] + kwargs['password']).encode()).hexdigest()})
+        query = "insert into tbl_users (username, password) values (%(username)s, %(password)s)"
+        results = self.db_curs(query, insert_data=kwargs)
+        self.close_connections()
+        return results
+
+
+if __name__ == '__name__':
+    db = DataBase()
+    print(db.conf)

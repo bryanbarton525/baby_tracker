@@ -4,37 +4,37 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='style.css') }}">
 <head>
     <meta charset="UTF-8">
-    <title>Log Event</title>
+    <title>Register User</title>
 </head>
 <body>
 <a class="logout" href="/logout">Logout, {{ session['user'] }}</a>
 <IMG src="http://10.174.62.100:8000/wp-content/uploads/2019/04/Bens-Logo.png" class="center">
 <hr>
 <ul>
-    <li><a class="active" href="/log_event">Log Event</a></li>
+    <li><a href="/log_event">Log Event</a></li>
     <li><a href="/feeding_report">Feeding Report</a></li>
     {% if session['user'] == 'admin' %}
-        <li><a href="/register">Register User</a></li>
+        <li><a class="active" href="/register">Register User</a></li>
     {% endif %}
 </ul>
 <hr>
-<h2 class="headers">Log Feeding, Poop or Pee</h2>
+<h2 class="headers">Register New User</h2>
 <form class="log_event" action="" method="post">
     {{ form.hidden_tag() }}
-    {{ form.time.label }}
-    {{ form.time() }}<br><br>
-    {% for subfield in form.type %}
-        <tr>
-            <td>{{ subfield }}</td>
-            <td>{{ subfield.label }}</td>
-        </tr><br>
-    {% endfor %}<br><br>
-    {{ form.note.label }}
-    {{ form.note(size=40) }}<br>
+    {{ form.username.label }}
+    {{ form.username() }}<br>
+    {{ form.password.label }}
+    {{ form.password() }}<br>
+        {% if form.password.errors %}
+        <p class="errors">{% for error in form.password.errors %}{{ error }}{% endfor %}</p>
+    {% endif %}
+    {{ form.confirm.label }}
+    {{ form.confirm() }}<br>
+    {{ form.accept_tos.label }}
+    {{ form.accept_tos() }}
+
+
     <input type="submit" value="Submit" class="site_btn site_btn-primary site_btn-large site_btn-block">
-    {% for error in form.errors %}
-      <p>{{error}}</p>
-    {% endfor %}
 
 </form>
 </body>
