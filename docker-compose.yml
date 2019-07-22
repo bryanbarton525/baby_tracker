@@ -14,7 +14,7 @@ services:
       - 80:80
 
   web:
-    image: baby_tracker:v1.06
+    image: baby_tracker:v1.07
     build: .
     networks:
       baby_tracker_network:
