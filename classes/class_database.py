@@ -57,7 +57,7 @@ class DataBase:
 
     def get_last_record(self, **kwargs):
         print(kwargs)
-        query = "select * from tbl_times where date = %(date)s and current_feed is True;"
+        query = "select * from tbl_times where current_feed is True;"
         record = self.db_curs(query=query, data=kwargs)
         print(record)
         return record
